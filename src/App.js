@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './Components/navbar';
 import Booklist from './Components/booklist';
-import ThemeContextProvider from './Context/theme-context';
+import ThemeContextProvider from './Context/ThemeContext';
 
 function App() {
   return (

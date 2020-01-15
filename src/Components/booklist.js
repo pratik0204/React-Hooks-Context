@@ -1,40 +1,22 @@
-import React, { Component } from 'react';
+import React, {useContext } from 'react';
 import {ThemeContext} from '../Context/ThemeContext';
-import { AuthContext } from '../Context/AuthContext';
-class Booklist extends Component {
-    state = {  }
-    render() { 
-        
-        return ( 
-            <AuthContext.Consumer>
-                {(authcontext)=>{
 
-                    const {isAuthenticated,toggleAuth} = authcontext
+const Booklist = () => {
 
+    const {isLightTheme,light,dark}=useContext(ThemeContext);
+    const theme = isLightTheme?light:dark;
 
-                    return(
-                        <ThemeContext.Consumer>
-                            {(themecontext) => {
-
-                                const {isLightTheme,light,dark}=themecontext;
-                                const theme = isLightTheme?light:dark;
-
-                                return(
-                                    <div className="book-list"style={{color: theme.syntax,background:theme.bg}} >
-                                        <ul>
-                                            <li style={{background: theme.ui}}>The way of kings</li>
-                                            <li style={{background: theme.ui}}>Learning c++</li>
-                                            <li style={{background: theme.ui}}>Object Oriented</li>
-                                        </ul>
-                                    </div>
-                                )
-                            }}
-                        </ThemeContext.Consumer>
-                    )
-                }}
-            </AuthContext.Consumer>
-         );
-    }
+    return ( 
+                <div className="book-list"style={{color: theme.syntax,background:theme.bg}} >
+                    <ul>
+                        <li style={{background: theme.ui}}>The way of kings</li>
+                        <li style={{background: theme.ui}}>Learning c++</li>
+                        <li style={{background: theme.ui}}>Object Oriented</li>
+                    </ul>
+                </div>
+                            
+     );
 }
  
-export default Booklist;
+export default Booklist
+;
